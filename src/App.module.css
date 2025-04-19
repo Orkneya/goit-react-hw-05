@@ -1,0 +1,26 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+/* .line{
+  width: '100vw'      // ширина на весь экран
+  height: '4px',          // толщина
+  backgroundColor: '#000',// цвет полосы
+  border: 'none',         // убираем дефолтную границу
+  margin: 0               // убираем отступы, если не нужны
+} */
+.line {
+  width: 100vw;
+  height: 4px;
+  background-color: black;
+  border: none;
+  margin: 0;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

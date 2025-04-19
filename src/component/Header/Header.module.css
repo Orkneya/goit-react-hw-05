@@ -1,0 +1,23 @@
+.active {
+  color: coral;
+  text-decoration: underline;
+}
+nav {
+  display: flex;
+  gap: 20px;
+  /* position: absolute; */
+  /* top: 0;
+  left: 0;
+  right: 0; */
+  padding-block: 10px;
+}
+.link {
+  /* color: inherit; */
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px 3rem;
+  border: 1px solid lightcyan;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
