@@ -2,8 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import css from "./App.module.css";
 
-import Header from "./component/Header/Header";
 import Loader from "./component/Loader/Loader";
+import Navigation from "./component/Navigation/Navigation";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Suspense fallback={<Loader />}>
-        <Header />
+        <Navigation />
         <hr className={css.line} />
         <Routes className={css.main}>
           <Route path="/" element={<HomePage />} />

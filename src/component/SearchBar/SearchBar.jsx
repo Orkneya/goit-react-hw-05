@@ -1,13 +1,13 @@
 import React from "react";
 import s from "./SearchBar.module.css";
-// import toast, { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const SearchBar = ({ handleChangeQuery }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newMovie = e.target.elements.newMovie.value;
     if (!newMovie.trim()) {
-      // toast.error("Please, enter movies..");
+      toast.error("Please, enter movies..");
     } else {
       handleChangeQuery(newMovie);
     }
@@ -16,7 +16,7 @@ const SearchBar = ({ handleChangeQuery }) => {
   };
   return (
     <>
-      {/* <Toaster /> */}
+      <Toaster />
       <form className={s.form} onSubmit={handleSubmit}>
         <input
           type="text"

@@ -5,13 +5,11 @@ import SearchBar from "../../component/SearchBar/SearchBar";
 
 // const [query, setQuery] = useState("");
 
-const handleChangeQuery = (newQuery) => {
-  setQuery(newQuery);
-  setImages([]);
-  setPage(1);
-};
-
 const MoviesPage = () => {
+  const [query, setQuery] = useState("");
+  const handleChangeQuery = (newQuery) => {
+    setQuery(newQuery);
+  };
   return (
     <>
       <SearchBar handleChangeQuery={handleChangeQuery} />

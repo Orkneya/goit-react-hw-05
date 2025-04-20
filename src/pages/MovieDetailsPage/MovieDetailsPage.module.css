@@ -1,0 +1,7 @@
+.line {
+  width: 100vw;
+  height: 3px;
+  background-color: fuchsia;
+  border: none;
+  margin: 0;
+}

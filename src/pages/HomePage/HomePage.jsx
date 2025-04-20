@@ -8,20 +8,13 @@ const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [totalPages, setTotalPages] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState("");
-  // const [error, setError] = useState(false);
-  // const [page, setPage] = useState(1);
 
   useEffect(() => {
     const abortController = new AbortController();
     const getDate = async () => {
       try {
         setLoading(true);
-        // if (!query) {
-        //   return;
-        // }
-        const data = await fetchMovies(query, abortController.signal);
-        // console.log(data, 222)
+        const data = await fetchMovies(abortController.signal);
         setMovies((prev) => [...prev, ...data.results]);
         // setMovies(data.result);
         setTotalPages(data.total_pages);
@@ -37,10 +30,11 @@ const HomePage = () => {
       }
     };
     getDate();
+    console.log(movies, 222);
     return () => {
       abortController.abort();
     };
-  }, [query]);
+  }, []);
 
   return (
     <div>

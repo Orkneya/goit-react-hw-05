@@ -9,7 +9,6 @@ const MoviesList = ({ data }) => {
       <ul>
         {data.map((item) => (
           <li key={item.id}>
-            {/* <Link to={item.id.toString()}>{item.original_title}</Link> */}
             <Link to={`movies/${item.id}`}>{item.original_title}</Link>
           </li>
         ))}
@@ -19,3 +18,7 @@ const MoviesList = ({ data }) => {
 };
 
 export default MoviesList;
+
+{
+  /* <Link to={item.id.toString()}>{item.original_title}</Link> */
+}
