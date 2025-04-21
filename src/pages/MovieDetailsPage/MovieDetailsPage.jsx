@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import { fetchMovie } from "../../services/api";
 import { isCancel } from "axios";
 import css from "./MovieDetailsPage.module.css";
@@ -37,6 +37,9 @@ const MovieDetailsPage = () => {
   return (
     <div>
       <Toaster />
+      <Link to="/" className={css.button}>
+        GO BACK
+      </Link>
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
         alt={movie.title}

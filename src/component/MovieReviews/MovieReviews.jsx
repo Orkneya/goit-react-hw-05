@@ -30,17 +30,20 @@ const MovieReviews = () => {
   return (
     <div>
       <Toaster />
-      {/* if (!reviews) */}
-      <ul>
-        {reviews.map((item) => (
-          <li key={item.id}>
-            <p>{item.content}</p>
-          </li>
-        ))}
-      </ul>
+      {reviews && reviews.length > 0 ? (
+        <ul>
+          {reviews.map((item) => (
+            <li key={item.id}>
+              <h3>Author: {item.author}</h3>
+              <p>{item.content}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>We don’t have any reviews for this movie.</p>
+      )}
     </div>
   );
 };
 
 export default MovieReviews;
-// We don`t have any reviews `for this movie.

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MoviesList = ({ data }) => {
+const MoviesList = ({ data, flag }) => {
   console.log(data, 123);
 
   return (
@@ -9,7 +9,11 @@ const MoviesList = ({ data }) => {
       <ul>
         {data.map((item) => (
           <li key={item.id}>
-            <Link to={`movies/${item.id}`}>{item.original_title}</Link>
+            {flag ? (
+              <Link to={`movies/${item.id}`}>{item.original_title}</Link>
+            ) : (
+              <Link to={`${item.id}`}>{item.original_title}</Link>
+            )}
           </li>
         ))}
       </ul>

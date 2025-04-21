@@ -11,7 +11,7 @@ const SearchBar = ({ handleChangeQuery }) => {
     } else {
       handleChangeQuery(newMovie);
     }
-    console.log(newMovie, 888);
+    console.log("newMovie:", newMovie);
     e.target.reset(0);
   };
   return (
@@ -21,11 +21,13 @@ const SearchBar = ({ handleChangeQuery }) => {
         <input
           type="text"
           name="newMovie"
+          placeholder="Search movies"
           autoComplete="off"
           autoFocus
-          placeholder="Search movies"
         />
-        <button type="submit">Search</button>
+        <button className={s.button} type="submit">
+          Search
+        </button>
       </form>
     </>
   );

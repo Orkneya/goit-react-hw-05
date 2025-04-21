@@ -30,7 +30,6 @@ const HomePage = () => {
       }
     };
     getDate();
-    console.log(movies, 222);
     return () => {
       abortController.abort();
     };
@@ -40,7 +39,7 @@ const HomePage = () => {
     <div>
       <Toaster />
       <h2 className={s.title}>Trending today</h2>
-      <MoviesList data={movies} />
+      <MoviesList data={movies} flag={true} />
     </div>
   );
 };

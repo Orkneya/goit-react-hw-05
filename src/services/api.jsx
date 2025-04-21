@@ -39,9 +39,22 @@ export const fetchMovieReviews = async (movieId) => {
   const response = await axios.get(url);
   return response.data;
 };
+
 export const fetchMovieCredits = async (movieId) => {
   const url = `/movie/${movieId}/credits`;
   console.log("urlCards", url);
   const response = await axios.get(url);
   return response.data.cast;
+};
+
+export const fetchMovieQuery = async (query) => {
+  const url = `/search/movie`;
+  const options = {
+    params: {
+      query: query,
+    },
+  };
+  console.log("urlCards", url);
+  const response = await axios.get(url, options);
+  return response.data;
 };
