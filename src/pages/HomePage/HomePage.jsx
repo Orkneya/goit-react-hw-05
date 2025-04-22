@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchMovies } from "../../services/api";
 import s from "./HomePage.module.css";
-import MoviesList from "../../component/MoviesList/MoviesList";
+import MoviesList from "../../components/MoviesList/MoviesList";
 import toast, { Toaster } from "react-hot-toast";
 
 const HomePage = () => {
