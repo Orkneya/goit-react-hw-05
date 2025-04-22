@@ -4,12 +4,22 @@ import s from "./MoviesPage.module.css";
 import SearchBar from "../../component/SearchBar/SearchBar";
 import { fetchMovieQuery } from "../../services/api";
 import MoviesList from "../../component/MoviesList/MoviesList";
+import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
-  const [query, setQuery] = useState("");
+  // const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query") ?? "";
+
   const handleChangeQuery = (newQuery) => {
-    setQuery(newQuery);
+    if (!newQuery) {
+      searchParams.delete("query");
+      return setSearchParams(searchParams);
+    }
+    // setQuery(newQuery);
+    searchParams.set("query", newQuery);
+    setSearchParams(searchParams);
   };
   useEffect(() => {
     const getDate = async () => {

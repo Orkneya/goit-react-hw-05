@@ -19,7 +19,6 @@ const HomePage = () => {
         // setMovies(data.result);
         setTotalPages(data.total_pages);
       } catch (error) {
-        // setError(true);
         if (error.message === "canceled") {
           console.log("Запит скасований користувачем");
           return;

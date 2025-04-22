@@ -1,6 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import { fetchMovie } from "../../services/api";
 import { isCancel } from "axios";
 import css from "./MovieDetailsPage.module.css";
@@ -9,18 +15,18 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
 
   const [movie, setMovie] = useState({});
+  const location = useLocation();
+  const goBackRef = useRef(location.state || "/movies");
 
   useEffect(() => {
     const abortController = new AbortController();
     const getDate = async () => {
       try {
         const data = await fetchMovie(movieId, abortController.signal);
-        console.log(data, 333);
-        // setMovies((prev) => [...prev, ...data.results]);
         setMovie(data);
       } catch (error) {
         if (isCancel(error)) {
-          console.log("Запит скасований користувачем");
+          // console.log("Запит скасований користувачем");
           return;
         }
         toast.error("❌ Error fetching movie:", error);
@@ -37,8 +43,8 @@ const MovieDetailsPage = () => {
   return (
     <div>
       <Toaster />
-      <Link to="/" className={css.button}>
-        GO BACK
+      <Link to={goBackRef.current} className={css.button}>
+        GO BACK TO USERS
       </Link>
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}

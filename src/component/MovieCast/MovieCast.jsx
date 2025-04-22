@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchMovieCredits, fetchMovieReviews } from "../../services/api";
+import { fetchMovieCredits } from "../../services/api";
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -9,7 +9,6 @@ const MovieCast = () => {
     const getDate = async () => {
       try {
         const date = await fetchMovieCredits(movieId);
-        console.log(date, 888);
         setCasts(date);
       } catch (error) {
         console.log(error);

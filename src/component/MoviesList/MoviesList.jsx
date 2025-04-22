@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const MoviesList = ({ data, flag }) => {
   console.log(data, 123);
+  const location = useLocation();
+  console.log(location, 567);
 
   return (
     <div>
@@ -10,9 +12,13 @@ const MoviesList = ({ data, flag }) => {
         {data.map((item) => (
           <li key={item.id}>
             {flag ? (
-              <Link to={`movies/${item.id}`}>{item.original_title}</Link>
+              <Link state={location} to={`movies/${item.id}`}>
+                {item.original_title}
+              </Link>
             ) : (
-              <Link to={`${item.id}`}>{item.original_title}</Link>
+              <Link state={location} to={`${item.id}`}>
+                {item.original_title}
+              </Link>
             )}
           </li>
         ))}

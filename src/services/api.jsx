@@ -22,7 +22,6 @@ export const fetchMovies = async (signal) => {
 export const fetchMovie = async (movieId, signal) => {
   // https://api.themoviedb.org/3/movie/{movie_id}
   const url = `/movie/${movieId}`;
-  console.log("urlMovie", url);
   const options = {
     params: {
       id: movieId,
